@@ -7,7 +7,8 @@ final _urlRegex = RegExp(
 );
 
 final _looseUrlRegex = RegExp(
-  r'((https?:www\.)|(https?:\/\/)|(www\.))[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?',
+  r'^(.*?)',
+  // r'((https?:www\.)|(https?:\/\/)|(www\.))[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?',
   caseSensitive: false,
   dotAll: true,
 );
@@ -44,15 +45,15 @@ class UrlLinkifier extends Linkifier {
             String? end;
 
             if ((options.excludeLastPeriod) &&
-                originalUrl[originalUrl.length - 1] == ".") {
-              end = ".";
+                originalUrl[originalUrl.length - 1] == '.') {
+              end = '.';
               originalUrl = originalUrl.substring(0, originalUrl.length - 1);
             }
 
             var url = originalUrl;
 
             if (!originalUrl.startsWith(_protocolIdentifierRegex)) {
-              originalUrl = (options.defaultToHttps ? "https://" : "http://") +
+              originalUrl = (options.defaultToHttps ? 'https://' : 'http://') +
                   originalUrl;
             }
 
