@@ -7,8 +7,7 @@ final _urlRegex = RegExp(
 );
 
 final _looseUrlRegex = RegExp(
-  r'^(.*?)',
-  // r'((https?:www\.)|(https?:\/\/)|(www\.))[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9]{1,6}(\/[-a-zA-Z0-9()@:%_\+.~#?&\/=]*)?',
+  r'https?://([\w-]+\.)+[\w-]+(/[\w-./?%&=#]*)?$',
   caseSensitive: false,
   dotAll: true,
 );
